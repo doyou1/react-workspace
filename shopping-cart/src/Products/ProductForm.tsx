@@ -12,7 +12,7 @@ const ProductForm: React.FC<ProductFormProps> = ({}) => {
                 <input type="text" placeholder='Game title' name='title'/>
                 <input type="text" placeholder='Price' name='price'/>
                 <input type="text" placeholder='Id' name='id'/>
-                <button > Add Product </button>
+                <button>Add Product</button>
             </form>
         </div>
     );
