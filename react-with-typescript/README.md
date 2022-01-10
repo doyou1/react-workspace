@@ -13,3 +13,5 @@ reference
   - Typescript's props
   - Typescript define function
   - CSS rem
+  - CSS transition
+  - CSS border-collapse
