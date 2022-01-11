@@ -10,3 +10,5 @@
     - configureStore
     - ReturnType
     - useSelector
+    - createAsyncThunk
+    - createEntityAdapter
