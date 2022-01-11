@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { addToCart } from "../Cart/cart.slice";
+import { RootState } from "../store";
 import { useAppDispatch } from "../store.hooks";
-import { getProductsSelector, Product, removeProduct } from "./products.slice";
+import { Product, removeProduct, selectAllProducts, selectProductById, selectProductEntities, selectProductIds, selectTotalProducts } from "./products.slice";
 
 
 const ProductsList: React.FC = ({}) => {
     
-    const products = useSelector(getProductsSelector)
+    const products = useSelector(selectAllProducts)
+    const rpg = useSelector<RootState>(state => selectProductById(state, 'rpg'))
+    const totalNumberOfProducts = useSelector(selectTotalProducts);
+    const productsIds = useSelector(selectProductIds)
+    const entities = useSelector(selectProductEntities)
+    console.log(products)
+    console.log(rpg)
+    console.log(totalNumberOfProducts)
+    console.log(productsIds)
+    console.log(entities)
+
+
     const dispatch = useAppDispatch()
 
     const removeFromStore = (id:string) => {
