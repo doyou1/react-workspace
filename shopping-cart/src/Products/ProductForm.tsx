@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../store.hooks';
-import { addProduct, Product } from './products.slice'
+import { addProduct, addProductAsync, getErrorMessage, Product } from './products.slice'
 
 const ProductForm: React.FC = () => {
 
     const dispatch = useAppDispatch()
-
+    const errorMessage = useSelector(getErrorMessage)
     const [product, setProduct] = useState<Product>({
         id: '',
         title: '',
@@ -21,7 +22,7 @@ const ProductForm: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        dispatch(addProduct(product))
+        dispatch(addProductAsync(product))
     }
 
     const {title, price, id} = product
@@ -29,11 +30,12 @@ const ProductForm: React.FC = () => {
     return (
         <div>
             <h2>Add Game to The Store</h2>
+            {errorMessage && <span>Error: {errorMessage}</span>}
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder='Game title' name='title' value={title} onChange={handleChange}/>
-                <input type="number" placeholder='Price' name='price' value={price} onChange={handleChange}/>
-                <input type="text" placeholder='Id' name='id' value={id} onChange={handleChange}/>
-                <button>Add Product</button>
+                <input style={{border: errorMessage ? "1px solid red": "1px solid black"}} type="text" placeholder='Game title' name='title' value={title} onChange={handleChange}/>
+                <input style={{border: errorMessage ? "1px solid red": "1px solid black"}} type="number" placeholder='Price' name='price' value={price} onChange={handleChange}/>
+                <input style={{border: errorMessage ? "1px solid red": "1px solid black"}} type="text" placeholder='Id' name='id' value={id} onChange={handleChange}/>
+                <button style={{backgroundColor: errorMessage ? 'red' : '#f2f5f9'}}>Add Product</button>
             </form>
         </div>
     );
