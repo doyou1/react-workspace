@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AddNumber from '../containers/AddNumber';
 
-export default class DisplayNumberRoot extends Component {
+export default class AddNumberRoot extends Component {
     render() {
         return (
             <div>
