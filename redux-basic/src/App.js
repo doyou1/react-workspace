@@ -1,29 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import {store} from './index';
+import React from 'react';
+import { Counter } from './features/counter/Counter';
 
 function App() {
 
-  const [number, setNumber] = useState(0);
-
-  useEffect(() => {
-    store.subscribe(() => setNumber(store.getState()))
-  }, []);
   return (
     <div className="App">
-      <div>
-        <button onClick={() => {
-          store.dispatch({ type: 'INCREMENT' })
-        }}>INCREMENT</button>
-      </div>
-      <div>
-        <button onClick={() => {
-          store.dispatch({ type: 'DECREMENT' })
-        }}>DECREMENT</button>        
-      </div>
-      <div>
-      {number}
-      </div>
+      <Counter />
     </div>
   );
 }
