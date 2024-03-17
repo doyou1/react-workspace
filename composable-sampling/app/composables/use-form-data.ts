@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export type FormData = {
+export type FormDataType = {
     id: string;
     password: string;
     nickName?: string;
@@ -8,26 +8,26 @@ export type FormData = {
 };
 
 
-export const useFormData = () => {
-    const [formData, setFormData] = useState<FormData>({
-        id: "",
-        password: "",
-        nickName: undefined,
-        age: 0,
-    });
+// export const useFormData = () => {
+//     const [formData, setFormData] = useState<FormData>({
+//         id: "",
+//         password: "",
+//         nickName: undefined,
+//         age: 0,
+//     });
 
-    useEffect(() => {
-        setFormData({
-            id: "default id",
-            password: "default password",
-            nickName: undefined,
-            age: 20,
-        })
-    }, [formData]);
+//     useEffect(() => {
+//         setFormData({
+//             id: "default id",
+//             password: "default password",
+//             nickName: undefined,
+//             age: 20,
+//         })
+//     }, [formData]);
 
-    return {
-        formData,
-        setFormData,
-    }
+//     return {
+//         formData,
+//         setFormData,
+//     }
 
-}
+// }
