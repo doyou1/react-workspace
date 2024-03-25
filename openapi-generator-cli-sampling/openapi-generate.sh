@@ -1,4 +1,13 @@
 #!/bin/bash
 
-openapi-generator-cli generate -g typescript-angular -i ./references/api-with-examples.yaml -o ./generated --global-property=models --additional-properties=modelPropertyNaming=camelCase --model-package=responses
-openapi-generator-cli generate -g typescript-angular -i ./references/api-with-examples.yaml -o ./generated --global-property=models --model-package=requests
+mkdir ./references
+
+# until curl "https://objects-mb.com/docs/openapi3.yaml" 1>./references/openapi3.yaml 2>./references/log.csv;
+until curl "{secret url}" 1>./references/openapi3.yaml 2>./references/log.csv;
+do
+    sleep 5
+done
+
+openapi-generator-cli generate -g typescript-angular -i ./references/openapi3.yaml -o ./generated --global-property=models --additional-properties=modelPropertyNaming=snake_case --model-package=requests
+openapi-generator-cli generate -g typescript-angular -i ./references/openapi3.yaml -o ./generated --global-property=models --additional-properties=modelPropertyNaming=camelCase --model-package=responses
+

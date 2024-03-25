@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "oa": "rimraf ./generated && sh openapi-generate.sh"
+    "oa": "rimraf ./generated && rimraf ./references && sh openapi-generate.sh"
   },
   "dependencies": {
     "react": "^18",
