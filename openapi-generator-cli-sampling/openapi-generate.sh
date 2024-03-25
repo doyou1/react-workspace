@@ -2,7 +2,6 @@
 
 mkdir ./references
 
-# until curl "https://objects-mb.com/docs/openapi3.yaml" 1>./references/openapi3.yaml 2>./references/log.csv;
 until curl "{secret url}" 1>./references/openapi3.yaml 2>./references/log.csv;
 do
     sleep 5
